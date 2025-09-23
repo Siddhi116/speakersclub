@@ -125,11 +125,12 @@ nav ul li a:hover::after {
 .member-card {
   display: flex;
   align-items: center;
-  justify-content: center; /* centralize content */
-  gap: 50px; /* space between card and info */
-  flex-wrap: wrap; /* wraps on smaller screens */
-  margin-bottom: 60px;
+  gap: 50px; /* space between photo and info */
+  flex-wrap: wrap;
+  margin: 0 auto 60px; /* centers horizontally with bottom margin */
+  max-width: 900px; /* limits the width so content stays centralized */
 }
+
 
 .member-card.reverse {
   flex-direction: row-reverse;
@@ -382,5 +383,6 @@ nav ul li a:hover::after {
         text-align: center;
     }
 }
+
 
 
