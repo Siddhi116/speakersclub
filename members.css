@@ -206,7 +206,7 @@ nav ul li a:hover::after {
   width: 100%;
   height: 100%;
   border-radius: 15px;
-  background-color: rgba(57, 255, 20, 0.2); /* faint glow on hover */
+  background-color: lightblue; /* faint glow on hover */
 }
 
 .card:hover {
@@ -259,7 +259,7 @@ nav ul li a:hover::after {
   max-width: 400px;
   height: 200px;
   margin: auto;
-  background: #111728;
+  background: mediumturquoise;
   border-radius: 15px;
   overflow: hidden;
   cursor: pointer;
@@ -280,7 +280,7 @@ nav ul li a:hover::after {
   content: "";
   width: 20%;
   height: 20%;
-  background-color: rgba(57, 255, 20, 0.15); /* subtle corner effect */
+  background-color: lightblue; /* subtle corner effect */
   transition: all 0.5s;
 }
 
@@ -301,7 +301,7 @@ nav ul li a:hover::after {
   width: 100%;
   height: 100%;
   border-radius: 15px;
-  background-color: rgba(57, 255, 20, 0.2); /* subtle hover */
+  background-color: lightblue; /* subtle hover */
 }
 
 .team-card:hover {
@@ -383,6 +383,7 @@ nav ul li a:hover::after {
         text-align: center;
     }
 }
+
 
 
 
