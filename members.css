@@ -110,6 +110,172 @@ nav ul li a:hover::after {
         margin: 10px 0;
     }
 }
+/* ===== General Layout ===== */
+.members-page {
+  background: #0b0f1a;
+  color: white;
+  padding: 100px 40px 50px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* ===== President & VP ===== */
+.member-section {
+  margin-bottom: 80px;
+}
+.member-card {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.member-section.reverse .member-card {
+  flex-direction: row-reverse;
+}
+.member-info h2 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #39ff14;
+}
+.member-info h3 {
+  font-size: 20px;
+  margin: 10px 0;
+  color: #00e6e6;
+}
+.member-info p {
+  font-size: 16px;
+  max-width: 500px;
+  color: #ccc;
+}
+
+/* ===== Portrait Card (President & VP) ===== */
+.card {
+  position: relative;
+  width: 220px;
+  height: 320px;
+  background: #1c2237;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.card::before,
+.card::after {
+  position: absolute;
+  content: "";
+  width: 20%;
+  height: 20%;
+  background-color: #39ff14;
+  transition: all 0.5s;
+}
+.card::before {
+  top: 0; right: 0;
+  border-radius: 0 15px 0 100%;
+}
+.card::after {
+  bottom: 0; left: 0;
+  border-radius: 0 100% 0 15px;
+}
+.card:hover::before,
+.card:hover::after {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  transition: all 0.5s;
+}
+.card:hover::after {
+  content: "HELLO";
+  color: black;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== Teams Section ===== */
+.teams {
+  margin-top: 50px;
+}
+.teams h2 {
+  font-size: 32px;
+  text-align: center;
+  color: #39ff14;
+  margin-bottom: 40px;
+}
+.teams-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+.team {
+  text-align: center;
+}
+.team h3 {
+  margin: 15px 0 5px;
+  font-size: 20px;
+  color: #00e6e6;
+}
+.team p {
+  font-size: 15px;
+  color: #ccc;
+}
+
+/* ===== Landscape Card (Teams) ===== */
+.team-card {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 200px;
+  margin: auto;
+  background: #1c2237;
+  border-radius: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.team-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.team-card::before,
+.team-card::after {
+  position: absolute;
+  content: "";
+  width: 20%;
+  height: 20%;
+  background-color: #39ff14;
+  transition: all 0.5s;
+}
+.team-card::before {
+  top: 0; right: 0;
+  border-radius: 0 15px 0 100%;
+}
+.team-card::after {
+  bottom: 0; left: 0;
+  border-radius: 0 100% 0 15px;
+}
+.team-card:hover::before,
+.team-card:hover::after {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+.team-card:hover::after {
+  content: "HELLO";
+  color: black;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 /* Footer */
 .footer {
@@ -186,3 +352,4 @@ nav ul li a:hover::after {
         text-align: center;
     }
 }
+
