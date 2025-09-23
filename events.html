@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Speakers Club — Events</title>
+
+  <!-- styles -->
+  <link rel="stylesheet" href="events.css" />
+
+  <!-- fonts & icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navbar (kept hover effects exactly the same) -->
+  <nav>
+        <div style="display: flex; align-items: center;">
+            <div class="SC_logo">
+                <div class="logo"></div>
+            </div>
+                <div class="club-title">
+                <h1>The <span style="color: #39ff14; font-style: italic; ">Speakers'</span></h1>
+                <h2>Club</h2>
+                </div>
+
+        </div>
+        <ul >
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="members.html">Members</a></li>
+            <li><a href="events.html">Events</a></li>
+        </ul>
+        
+    </nav>
+
+  <!-- Main -->
+  <main class="events-page">
+    <header class="events-header">
+      <h2>Events</h2>
+      <p>Each event shows title & date in bold, a short description, and a horizontally scrollable gallery (3 visible). Use arrows to page through images.</p>
+    </header>
+
+    <section class="events-list">
+
+      <!-- EVENT 1 -->
+      <article class="event-card">
+        <div class="event-meta">
+          <h3 class="event-title"><strong>Debate Competition</strong></h3>
+          <span class="event-date"><strong>April 15, 2025</strong></span>
+        </div>
+        <p class="event-desc">A thrilling inter-college debate where teams argued contemporary topics and judges scored based on content & delivery.</p>
+
+        <div class="gallery-container" aria-label="Debate Competition gallery">
+          <button class="gallery-btn prev" aria-label="Previous photos"><i class="fa-solid fa-chevron-left"></i></button>
+
+          <div class="gallery-viewport" tabindex="0" aria-live="polite">
+            <div class="gallery-track">
+              <img src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=1200&auto=format&fit=crop" alt="stage">
+              <img src="https://images.unsplash.com/photo-1515165562835-c8a7c3f9a6b7?q=80&w=1200&auto=format&fit=crop" alt="audience">
+              <img src="https://images.unsplash.com/photo-1503428593586-e225b39bddfe?q=80&w=1200&auto=format&fit=crop" alt="speaker">
+              <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop" alt="trophy">
+              <img src="https://images.unsplash.com/photo-1508995397921-9b25b2a6b3f6?q=80&w=1200&auto=format&fit=crop" alt="group">
+            </div>
+          </div>
+
+          <button class="gallery-btn next" aria-label="Next photos"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </article>
+
+      <!-- EVENT 2 -->
+      <article class="event-card">
+        <div class="event-meta">
+          <h3 class="event-title"><strong>Public Speaking Workshop</strong></h3>
+          <span class="event-date"><strong>June 05, 2025</strong></span>
+        </div>
+        <p class="event-desc">Hands-on workshop focusing on voice, projection and stage presence. Participants practiced short speeches with live feedback.</p>
+
+        <div class="gallery-container" aria-label="Workshop gallery">
+          <button class="gallery-btn prev" aria-label="Previous photos"><i class="fa-solid fa-chevron-left"></i></button>
+
+          <div class="gallery-viewport" tabindex="0" aria-live="polite">
+            <div class="gallery-track">
+              <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1200&auto=format&fit=crop" alt="group">
+              <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=1200&auto=format&fit=crop" alt="vocal exercise">
+              <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop" alt="coach">
+              <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?q=80&w=1200&auto=format&fit=crop" alt="practice">
+              <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=1200&auto=format&fit=crop" alt="notes">
+            </div>
+          </div>
+
+          <button class="gallery-btn next" aria-label="Next photos"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </article>
+
+      <!-- EVENT 3 -->
+      <article class="event-card">
+        <div class="event-meta">
+          <h3 class="event-title"><strong>Persuasive Speech Night</strong></h3>
+          <span class="event-date"><strong>August 20, 2025</strong></span>
+        </div>
+        <p class="event-desc">Fast-paced persuasive speeches — speakers had 5 minutes each to convincingly argue their positions. High energy and great insights.</p>
+
+        <div class="gallery-container" aria-label="Persuasive Night gallery">
+          <button class="gallery-btn prev" aria-label="Previous photos"><i class="fa-solid fa-chevron-left"></i></button>
+
+          <div class="gallery-viewport" tabindex="0" aria-live="polite">
+            <div class="gallery-track">
+              <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a71?q=80&w=1200&auto=format&fit=crop" alt="microphone">
+              <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1200&auto=format&fit=crop" alt="clapping">
+              <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981d?q=80&w=1200&auto=format&fit=crop" alt="judges">
+              <img src="https://images.unsplash.com/photo-1524345909064-2f6ca7fe5a5f?q=80&w=1200&auto=format&fit=crop" alt="stage lights">
+              <img src="https://images.unsplash.com/photo-1515378925604-0a5b8f5b0d9b?q=80&w=1200&auto=format&fit=crop" alt="audience">
+            </div>
+          </div>
+
+          <button class="gallery-btn next" aria-label="Next photos"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <!-- Footer (kept same style) -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-column">
+        <h4>Contact Us</h4>
+        <p>Email: speakersclub@sakec.ac.in</p>
+        <p>Phone: +91 9876543218</p>
+      </div>
+      <div class="footer-column">
+        <h4>Follow Us</h4>
+        <div class="social-icons">
+          <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+          <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+          <a href="#" target="_blank"><i class="fa-solid fa-globe"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 The Speakers' Club | All Rights Reserved</p>
+    </div>
+  </footer>
+
+  <!-- script -->
+  <script>
+    // Per-gallery paging: arrows move by one "page" (the visible width of the viewport).
+document.querySelectorAll('.gallery-container').forEach(container => {
+  const prev = container.querySelector('.gallery-btn.prev');
+  const next = container.querySelector('.gallery-btn.next');
+  const viewport = container.querySelector('.gallery-viewport');
+  const track = container.querySelector('.gallery-track');
+
+  if (!viewport || !track) return;
+
+  // Amount to scroll per click = the viewport's visible width (so it pages by 3 images on desktop)
+  const scrollPage = () => viewport.clientWidth;
+
+  // Update disabled state of buttons
+  const updateButtons = () => {
+    // small epsilon to avoid float rounding issues
+    const atStart = viewport.scrollLeft <= 2;
+    const atEnd = viewport.scrollLeft >= (track.scrollWidth - viewport.clientWidth - 2);
+    prev.disabled = atStart;
+    next.disabled = atEnd;
+    prev.setAttribute('aria-disabled', prev.disabled);
+    next.setAttribute('aria-disabled', next.disabled);
+  };
+
+  // Click handlers
+  prev.addEventListener('click', () => {
+    viewport.scrollBy({ left: -scrollPage(), behavior: 'smooth' });
+  });
+
+  next.addEventListener('click', () => {
+    viewport.scrollBy({ left: scrollPage(), behavior: 'smooth' });
+  });
+
+  // Keep buttons in sync while user scrolls, or on resize
+  viewport.addEventListener('scroll', () => window.requestAnimationFrame(updateButtons));
+  window.addEventListener('resize', () => window.requestAnimationFrame(updateButtons));
+
+  // init
+  setTimeout(updateButtons, 100);
+});
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speakers Club - Home</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
+
+    
+</head>
+ <body>
+
+    <!-- Navbar -->
+    <nav>
+        <div style="display: flex; align-items: center;">
+            <div class="SC_logo">
+                <div class="logo"></div>
+            </div>
+                <div class="club-title">
+                <h1>The <span style="color: #39ff14; font-style: italic; ">Speakers'</span></h1>
+                <h2>Club</h2>
+                </div>
+
+        </div>
+        <ul >
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="members.html">Members</a></li>
+            <li><a href="events.html">Events</a></li>
+        </ul>
+        
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to The <span style="color: #39ff14; font-style: italic; ">SPEAKERS'</span> Club</h1>
+            <div class="typing">Speak. Inspire. Lead.</div>
+        </div>
+    </section>
+
+    <!-- Highlights Section -->
+    
+    <section class="highlights-section">
+  <h2 class="highlight-title">How We Are Different At The <span style="color: #39ff14; font-style: italic;"> Speakers'</span> Club</h2>
+  
+  <div class="highlights">
+    <div class="highlight-card">
+        <i class="fas fa-microphone-alt"></i>
+      <h2> Workshops </h2>
+      <p>
+        Participate in immersive, hands-on public speaking and leadership training 
+        sessions designed to boost your confidence. Each workshop includes practical 
+        exercises, voice modulation drills, and constructive feedback from mentors, 
+        ensuring you leave with skills you can apply immediately.
+      </p>
+    </div>
+
+    <div class="highlight-card">
+        <i class="fas fa-trophy"></i>
+      <h2> Competitions </h2>
+      <p>
+        Test your skills in exciting speech contests, debates, and storytelling challenges. 
+        From impromptu speaking rounds to prepared speeches, competitions offer a chance 
+        to sharpen quick thinking, improve delivery, and earn recognition for your talent.
+      </p>
+    </div>
+
+    <div class="highlight-card">
+        <i class="fas fa-users"></i>
+      <h2> Networking </h2>
+      <p>
+        Build meaningful connections with like-minded individuals, experienced speakers, 
+        and industry experts. Our networking opportunities include informal meetups, 
+        panel discussions, and collaborative events that open doors to mentorship 
+        and professional growth.
+      </p>
+    </div>
+  </div>
+</section>
+
+    <!-- Quotes Section -->
+    <section class="quotes" id="quote">
+        “The art of communication is the language of leadership.”
+    </section>
+        <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Contact Column -->
+            <div class="footer-column">
+                <h4>Contact Us</h4>
+                <p>Email: speakersclub@sakec.ac.in</p>
+                <p>Phone: +91 9876543218</p>
+            </div>
+
+            <!-- Social Media Column -->
+            <div class="footer-column">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/Sakec_Speakers.Club/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/search/results/all/?heroEntityKey=urn%3Ali%3Aorganization%3A108091734&keywords=Speakers%27%20Club-SAKEC&origin=ENTITY_SEARCH_HOME_HISTORY&sid=k~*" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.youtube.com/@SAKECYouTubeChannel" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.sakec.ac.in/speakers-club/" target="_blank"><i class="fa-solid fa-globe"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 The Speakers' Club | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script >
+                /*highlight section */
+
+        document.addEventListener("DOMContentLoaded", () => {
+  const highlightCards = document.querySelectorAll(".highlight-card");
+
+  const revealOnScroll = () => {
+    highlightCards.forEach((card) => {
+      const cardTop = card.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      if (cardTop < windowHeight - 100) {
+        card.classList.add("visible");
+      }
+    });
+  };
+
+  window.addEventListener("scroll", revealOnScroll);
+  revealOnScroll();
+});
+        /*quotes section */
+const quotes = [
+            "The art of communication is the language of leadership.",
+            "Public speaking is the art of diluting a two-minute idea with a two-hour vocabulary.",
+            "Your voice is your superpower — use it to inspire.",
+            "Words have power. Use them wisely.",
+            "Speak so others listen, listen so others speak."
+        ];
+        
+        let index = 0;
+        const quoteElement = document.getElementById('quote');
+
+        setInterval(() => {
+            index = (index + 1) % quotes.length;
+            quoteElement.style.opacity = 0;
+            setTimeout(() => {
+                quoteElement.textContent = quotes[index];
+                quoteElement.style.opacity = 1;
+            }, 500);
+        }, 5000);
+    </script>
+
+
+</body>
+</html>

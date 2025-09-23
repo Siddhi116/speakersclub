@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speakers Club - Home</title>
+    <link rel="stylesheet" href="about.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"> 
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=fire">
+
+    
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div style="display: flex; align-items: center;">
+            <div class="SC_logo">
+                <div class="logo"></div>
+            </div>
+                <div class="club-title">
+                <h1>The <span style="color: #39ff14; font-style: italic; ">Speakers'</span></h1>
+                <h2>Club</h2>
+                </div>
+
+        </div>
+        <ul >
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="members.html">Members</a></li>
+            <li><a href="events.html">Events</a></li>
+        </ul>
+         
+    </nav>
+
+    <!-- Hero Section -->
+  <section class="about-hero">
+      <div class="about-hero-content">
+          <h1>Echoes of <span style="color: #39ff14;">SAKEC</span></h1>
+          <p>“Voice Your Vision, Ignite Your Impact”</p>
+      </div>
+  </section>
+
+  <!-- Our Story -->
+  <section class="our-story">
+      <h2>About <span style="color: #39ff14;">US</span></h2>
+      <p>
+          The SAKEC Speakers’ Club is one of the most dynamic non-technical clubs of SAKEC, dedicated to nurturing confident communicators and leaders. 
+          The club organizes diverse speaking events such as debates, extempore competitions, quizzes, and more with its flagship Inter-Collegiate Mumbai-Level Quiz standing out as a signature annual event.
+          Founded on 4th February 2017 by a group of enthusiastic first-year students, the club has since grown into a vibrant community, bringing together students from every branch and year of engineering.
+      </p>
+  </section>
+
+  <!-- Our Mission & Vision Section -->
+<section class="mission-vision reveal">
+  <div class="mv-container">
+    <div class="mv-box mission">
+      <h2>Our Mission</h2>
+      <p>
+        To empower individuals with confidence, communication skills, and leadership abilities by
+        providing a creative platform for speaking, expression, and growth.
+      </p>
+    </div>
+    <div class="divider"></div>
+    <div class="mv-box vision">
+      <h2>Our Vision</h2>
+      <p>
+        To build a community of powerful speakers and leaders who inspire, influence, and create a
+        positive impact in society and beyond.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+  <section class="why-join reveal">
+  <h2>Why Join Us?</h2>
+  <div class="reasons-grid">
+    <div class="reason">🎤 Gives vent to students’ creative talents.</div>
+    <div class="reason">🗣️ Provides a platform to express views on contemporary issues.</div>
+    <div class="reason">📚 Enhances students’ learning opportunities.</div>
+    <div class="reason">⭐ Hones speaking and leadership skills.</div>
+  </div>
+</section>
+
+
+<!-- Student Benefits / Outcomes Section -->
+<section class="student-benefits reveal">
+  <h2>What You Will Gain</h2>
+  <div class="benefits-roadmap">
+    <div class="benefit-step">
+      <span class="step-number">1</span>
+      <p>Organize seminars and workshops for students and faculty.</p>
+    </div>
+    <div class="benefit-step">
+      <span class="step-number">2</span>
+      <p>Develop soft skills for overall improvement.</p>
+    </div>
+    <div class="benefit-step">
+      <span class="step-number">3</span>
+      <p>Perform well in group discussions & placement interviews, enhancing career prospects.</p>
+    </div>
+    <div class="benefit-step">
+      <span class="step-number">4</span>
+      <p>Demonstrate technical expertise while conducting events.</p>
+    </div>
+    <div class="benefit-step">
+      <span class="step-number">5</span>
+      <p>Become more confident to face the mainstream of life.</p>
+    </div>
+  </div>
+</section>
+
+
+        <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Contact Column -->
+            <div class="footer-column">
+                <h4>Contact Us</h4>
+                <p>Email: speakersclub@sakec.ac.in</p>
+                <p>Phone: +91 9876543218</p>
+            </div>
+
+            <!-- Social Media Column -->
+            <div class="footer-column">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="https://www.instagram.com/Sakec_Speakers.Club/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/search/results/all/?heroEntityKey=urn%3Ali%3Aorganization%3A108091734&keywords=Speakers%27%20Club-SAKEC&origin=ENTITY_SEARCH_HOME_HISTORY&sid=k~*" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.youtube.com/@SAKECYouTubeChannel" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.sakec.ac.in/speakers-club/" target="_blank"><i class="fa-solid fa-globe"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 The Speakers' Club | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script>
+(function () {
+  function addStagger(selector, stepMs) {
+    document.querySelectorAll(selector).forEach((el, i) => {
+      el.style.transitionDelay = (i * stepMs) + "ms";
+    });
+  }
+
+  const revealSelectors = [
+    ".our-story",
+    ".what-we-do",
+    ".what-we-do .card",
+    ".why-join",
+    ".benefits .benefit"
+  ];
+
+  revealSelectors.forEach(sel => {
+    document.querySelectorAll(sel).forEach(el => el.classList.add("reveal"));
+  });
+
+  addStagger(".what-we-do .card", 120);
+  addStagger(".benefits .benefit", 120);
+
+  const revealEls = document.querySelectorAll(".reveal");
+
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealEls.forEach(el => io.observe(el));
+  } else {
+    const onScroll = () => {
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      revealEls.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top <= vh * 0.85) el.classList.add("active");
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("load", onScroll);
+    onScroll();
+  }
+})();
+</script>
+
+
+
+</body>
+</html>
