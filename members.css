@@ -159,7 +159,7 @@ nav ul li a:hover::after {
   position: relative;
   width: 220px;
   height: 320px;
-  background: #111728; /* subtle dark background */
+  background: mediumturquoise; 
   display: flex;
   align-items: center;
   justify-content: center;
@@ -185,7 +185,7 @@ nav ul li a:hover::after {
   content: "";
   width: 20%;
   height: 20%;
-  background-color: rgba(57, 255, 20, 0.15); /* subtle neon hint */
+  background-color: lightblue; 
   transition: all 0.5s;
 }
 
@@ -383,6 +383,7 @@ nav ul li a:hover::after {
         text-align: center;
     }
 }
+
 
 
 
