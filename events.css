@@ -31,7 +31,7 @@ nav {
             z-index: 1000;
         }
 
-        
+
 
         .SC_logo {
             height: 85px;
@@ -54,11 +54,11 @@ nav {
         display: flex;
         flex-direction: column;
         line-height: 1;
-        text-align: center; 
+        text-align: center;
         }
 
         .club-title h1, .club-title h2 {
-        margin:3px; 
+        margin:3px;
         }
         .club-title h2{
             text-align: left;
@@ -162,9 +162,11 @@ nav {
   flex-shrink:0;
   border:1px solid rgba(255,255,255,0.04);
   box-shadow: 0 6px 14px rgba(0,0,0,0.6);
-  transition: transform .15s ease;
+  transition: transform 0.3s ease-in-out;
 }
-.gallery-track img:hover{ transform: translateY(-6px) scale(1.1); }
+.gallery-track img:hover{
+  transform: scale(1.1) translateY(-8px);
+}
 
 /* ---------- FOOTER (kept as before) ---------- */
 .footer { background-color:#111728; padding:30px 10px 10px; color:white; font-size:0.9rem; margin-top:36px; }
@@ -196,5 +198,3 @@ nav {
   /* show 1 image at a time on very small screens */
   .gallery-viewport{ width: calc((var(--img-w) * 1) + (var(--gap) * 0)); }
 }
-
-
