@@ -6,6 +6,7 @@
   --gap: 12px;
   --img-w: 260px; /* base image width */
   --img-h: 150px;
+  --nav-height: 110px;
 }
 
 /* base reset */
@@ -15,21 +16,23 @@ body{
   background:var(--bg);
   color:#fff;
   line-height:1.6;
-  padding-top:100px; /* space for fixed navbar */
+  padding-top: var(--nav-height); /* space for fixed navbar */
 }
 
 /* ---------- NAVBAR (hover effects kept exactly as requested) ---------- */
 nav {
-            position:absolute;
-            top: 0;
+      position: fixed;
+      top: 0;
             width: 100%;
             background: rgba(11, 15, 26, 0.756);
-            padding: 10px 30px;
+            padding: 6px 12px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             z-index: 1000;
         }
+/* ensure nav actually reserves the vertical space we expect */
+nav { min-height: var(--nav-height); }
 
 
 
@@ -61,8 +64,36 @@ nav {
         margin:3px;
         }
         .club-title h2{
-            text-align: left;
+            text-align: center;
         }
+
+/* Hamburger / nav toggle (mobile) */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 4px;
+  margin-right: 4px;
+}
+.nav-toggle .bar { display:block; width:24px; height:3px; background:#fff; margin:4px 0; transition: transform .25s ease, opacity .25s ease; }
+
+/* When nav is open, show the ul on small screens */
+nav.open ul { display: flex !important; }
+
+@media (max-width: 768px) {
+  .nav-toggle { display: block; }
+  nav ul { display: none !important; width: 100%; }
+  nav.open ul { display: flex; flex-direction: column; }
+  nav.open ul li { width: 100%; }
+  nav.open ul li a { padding: 12px 0; display: block; }
+
+  /* center logo + title stack */
+  nav { flex-direction: column; align-items: center; }
+  nav > div { display:flex !important; flex-direction:column; align-items:center; width:100%; gap:4px; }
+  .SC_logo { margin-bottom:4px; }
+  .club-title { width:100%; text-align:center; margin:0; }
+}
 
 
         nav ul{
@@ -104,7 +135,7 @@ nav {
             }
 
 /* ---------- MAIN / HEADER ---------- */
-.events-page{ max-width:1100px; margin:28px auto; padding:12px; }
+.events-page{ max-width:1100px; margin: calc(var(--nav-height) + 16px) auto 0; padding:12px; }
 .events-header{ margin-bottom:18px; padding:14px; border-radius:10px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(57,255,20,0.04); }
 .events-header h2{ font-family: Montserrat, sans-serif; font-size:22px; }
 .events-header p{ color:var(--muted); font-size:14px; }
