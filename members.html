@@ -14,6 +14,11 @@
 
     <!-- Navbar -->
     <nav>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
         <div style="display: flex; align-items: center;">
             <div class="SC_logo">
                 <div class="logo"></div>
@@ -84,27 +89,27 @@
         </div>
 
       <div class="team">
-        <div class="team-card" data-description="They are the voice of every event, bringing energy, clarity, and confidence to the stage. With strong communication skills, they ensure programs flow smoothly and keep the audience engaged">
+        <div class="team-card" data-description="Designs all posters, banners, and creative content for the club.">
           <img src="DSC00162.JPG" alt="Creative Team" />
         </div>
         <h3>Anchor's Team</h3>
         </div>
 
       <div class="team">
-        <div class="team-card" data-description="They record, organize, and preserve all club activities—from meetings to major events—with clarity and accuracy. Their documentation helps maintain transparency and serves as a valuable archive for future members">
+        <div class="team-card" data-description="Handles all photography, videography, and social media content.">
           <img src="DSC00171.JPG" alt="Media Team" />
         </div>
         <h3>Documentation Team</h3>
         </div>
         <div class="team">
-        <div class="team-card" data-description="Designs all posters, banners, and creative content for the club.">
+        <div class="team-card" data-description="Handles all photography, videography, and social media content.">
           <img src="DSC00186.JPG" alt="Media Team" />
         </div>
         <h3>Graphics Team</h3>
         </div>
 
          <div class="team">
-        <div class="team-card" data-description="They craft the club’s public image, manage outreach, and build strong connections with students and external communities. Their work ensures every event gets the visibility and engagement it deserves.">
+        <div class="team-card" data-description="Handles all photography, videography, and social media content.">
           <img src="DSC00197.JPG" alt="Media Team" />
         </div>
         <h3>Public Relations Team</h3>
@@ -121,7 +126,7 @@
             <div class="footer-column">
                 <h4>Contact Us</h4>
                 <p>Email: speakersclub@sakec.ac.in</p>
-                <p>Phone: +91 9892805571/ +91 9321366707</p>
+                <p>Phone: +91 9876543218</p>
             </div>
 
             <!-- Social Media Column -->
@@ -141,6 +146,45 @@
         </div>
     </footer>
 
+    <script>
+      // Navbar toggle for small screens
+      (function(){
+        const nav = document.querySelector('nav');
+        const toggle = document.querySelector('.nav-toggle');
+        const navUL = nav.querySelector('ul');
+
+        if (toggle) {
+          toggle.addEventListener('click', function(e){
+            const expanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', String(!expanded));
+            nav.classList.toggle('open');
+          });
+        }
+
+        // Tap-to-toggle overlays for cards (useful on touch devices)
+        function setupCardToggles(selector) {
+          document.querySelectorAll(selector).forEach(card => {
+            // Prevent double-tap zoom on mobile by using touchstart if available
+            card.addEventListener('click', function(e){
+              // If the card already has .show, hide it; otherwise show only this one
+              const isShowing = card.classList.contains('show');
+              // hide any other open cards
+              document.querySelectorAll('.card.show, .team-card.show').forEach(c => c.classList.remove('show'));
+              if (!isShowing) card.classList.add('show');
+              e.stopPropagation();
+            });
+          });
+        }
+
+        setupCardToggles('.card');
+        setupCardToggles('.team-card');
+
+        // Close overlays when tapping outside
+        document.addEventListener('click', function(e){
+          document.querySelectorAll('.card.show, .team-card.show').forEach(c => c.classList.remove('show'));
+        });
+      })();
+    </script>
+
 </body>
 </html>
-
