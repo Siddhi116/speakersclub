@@ -52,7 +52,7 @@ nav {
     margin: 3px; 
 }
 .club-title h2 {
-    text-align: left;
+  text-align: center;
 }
 
 nav ul {
@@ -95,20 +95,98 @@ nav ul li a:hover::after {
 
 /* Responsive Navbar */
 @media(max-width: 768px) {
-    nav {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+  nav {
+    flex-direction: column;
+    align-items: center; /* center contents on mobile */
+  }
 
-    nav ul {
-        flex-direction: column;
-        width: 100%;
-        padding-top: 10px;
-    }
+  /* Stack logo and title vertically and center on mobile */
+  nav > div {
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 4px;
+  }
 
-    nav ul li {
-        margin: 10px 0;
-    }
+  .SC_logo { margin-bottom: 4px; }
+
+  .club-title {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+  }
+
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+    padding-top: 10px;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+}
+/* Hamburger / nav toggle */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 8px;
+  margin-right: 10px;
+}
+.nav-toggle .bar {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: #fff;
+  margin: 4px 0;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* When nav is open, show the ul on small screens */
+nav.open ul {
+  display: flex !important;
+}
+
+@media (max-width: 768px) {
+  .nav-toggle { display: block; }
+  nav ul { display: none; width: 100%; }
+  nav.open ul { display: flex; flex-direction: column; }
+  nav.open ul li { width: 100%; }
+  nav.open ul li a { padding: 12px 0; display: block; }
+}
+
+/* Card & team-card: allow programmatic show (for touch devices) */
+.card.show::after,
+.team-card.show::after {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  content: attr(data-description);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  font-size: 16px;
+  font-weight: normal;
+  color: #eee;
+  line-height: 1.4;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  z-index: 3;
+}
+
+/* Make sure hovering still works, but hide hover overlay on very small screens to avoid conflicts */
+@media (max-width: 420px) {
+  .card:hover::after, .team-card:hover::after { display: none; }
+  .card.show::after, .team-card.show::after { display: flex; }
+  .card, .team-card { cursor: pointer; }
+  .card.show img, .team-card.show img { transform: scale(1.03); }
+  .card.show::before, .team-card.show::before { z-index: 2; }
 }
 /* ================= Members Page Main Section ================= */
 /* ================= Members Page Main Section ================= */
@@ -130,7 +208,7 @@ nav ul li a:hover::after {
   flex-wrap: wrap;
   margin: 0 auto 60px; /* centers horizontally with bottom margin */
   max-width: 900px; 
-  overflow: visible;/* limits the width so content stays centralized */
+  overflow: visible; /* limits the width so content stays centralized */
 }
 
 
@@ -160,7 +238,7 @@ nav ul li a:hover::after {
 .card {
   position: relative;
   width: 300px;
-  height: 320px;
+  max-width: 100%;
   background: mediumturquoise;
   display: flex;
   align-items: center;
@@ -169,15 +247,18 @@ nav ul li a:hover::after {
   cursor: pointer;
   border: 1px solid #1c2237;
   transition: all 0.4s ease;
-  overflow: visible;
-  /* REMOVED font properties from the base card */
+  overflow: hidden; /* keep overlay inside card and avoid clipping issues */
+  aspect-ratio: 3 / 3.2; /* preserve portrait ratio where supported */
+  height: auto;
 }
 
 .card img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* ADDED transition for a subtle zoom effect on hover */
+  position: relative;
+  z-index: 1; /* ensure image sits below overlay pseudo-elements */
   transition: transform 0.5s ease;
 }
 
@@ -187,9 +268,9 @@ nav ul li a:hover::after {
   content: "";
   width: 20%;
   height: 20%;
-  /* UPDATED to a semi-transparent color */
   background-color: rgba(28, 34, 55, 0.85);
   transition: all 0.5s;
+  pointer-events: none;
 }
 
 .card::before {
@@ -208,6 +289,7 @@ nav ul li a:hover::after {
   width: 100%;
   height: 100%;
   border-radius: 15px;
+  z-index: 2;
 }
 
 /* MODIFIED to display the description text */
@@ -215,7 +297,6 @@ nav ul li a:hover::after {
   width: 100%;
   height: 100%;
   border-radius: 15px;
-  /* ADDED properties to style and display the description */
   content: attr(data-description); /* Pulls text from HTML data-attribute */
   display: flex;
   align-items: center;
@@ -225,17 +306,11 @@ nav ul li a:hover::after {
   font-size: 16px;
   font-weight: normal;
   color: #eee;
-  overflow:visible;
-  white-space:normal;
-   /* Text Fixes */
-  padding: 20px;
-  font-size: 16px;
-  font-weight: normal;
-  color: #eee;
   line-height: 1.4;
-  white-space: normal;      /* ✅ allows wrapping */
-  word-wrap: break-word;    /* ✅ breaks long words */
-  overflow-wrap: break-word;/* ✅ modern alternative */
+  white-space: normal;      /* allows wrapping */
+  word-wrap: break-word;    /* breaks long words */
+  overflow-wrap: break-word;/* modern alternative */
+  z-index: 3; /* ensure description is above the image and decorative ::before */
 }
 
 .card:hover {
@@ -244,7 +319,7 @@ nav ul li a:hover::after {
 
 /* ADDED subtle zoom to image on card hover */
 .card:hover img {
-    transform: scale(1.1);
+  transform: scale(1.06);
 }
 
 /* ===== Landscape Cards (Teams) ===== */
@@ -294,7 +369,7 @@ nav ul li a:hover::after {
   margin: auto;
   background: mediumturquoise;
   border-radius: 15px;
-  overflow: visible;
+  overflow: hidden;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -307,6 +382,8 @@ nav ul li a:hover::after {
   object-fit: cover;
    /* ADDED transition for a subtle zoom effect on hover */
   transition: transform 0.5s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .team-card::before,
@@ -355,6 +432,40 @@ nav ul li a:hover::after {
   font-size: 16px;
   color: #eee;
   overflow: visible;
+  z-index: 3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .member-card {
+    gap: 20px;
+  }
+
+  .card {
+    width: 45vw;
+    aspect-ratio: 3 / 3.2;
+  }
+
+  .team-card {
+    height: 180px;
+  }
+}
+
+@media (max-width: 700px) {
+  .member-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .teams-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .card, .team-card {
+    width: 100%;
+    max-width: 420px;
+  }
 }
 
 .team-card:hover {
