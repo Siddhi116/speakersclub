@@ -118,27 +118,49 @@
     </footer>
 
     <script >
-                /*highlight section */
+        /* Menu toggle */
+        (function() {
+            const navToggle = document.querySelector(".nav-toggle");
+            const nav = document.querySelector("nav");
+            
+            if (!navToggle || !nav) return;
 
-        document.addEventListener("DOMContentLoaded", () => {
-  const highlightCards = document.querySelectorAll(".highlight-card");
+            navToggle.addEventListener("click", function(e) {
+                e.stopPropagation();
+                nav.classList.toggle("open");
+                const isOpen = nav.classList.contains("open");
+                navToggle.setAttribute("aria-expanded", isOpen);
+            });
 
-  const revealOnScroll = () => {
-    highlightCards.forEach((card) => {
-      const cardTop = card.getBoundingClientRect().top;
-      const windowHeight = window.innerHeight;
+            // Close menu when a link is clicked
+            const navLinks = document.querySelectorAll("nav ul li a");
+            navLinks.forEach(link => {
+                link.addEventListener("click", () => {
+                    nav.classList.remove("open");
+                    navToggle.setAttribute("aria-expanded", false);
+                });
+            });
+        })();
 
-      if (cardTop < windowHeight - 100) {
-        card.classList.add("visible");
-      }
-    });
-  };
+        /* highlight section */
+        const highlightCards = document.querySelectorAll(".highlight-card");
 
-  window.addEventListener("scroll", revealOnScroll);
-  revealOnScroll();
-});
-        /*quotes section */
-const quotes = [
+        const revealOnScroll = () => {
+            highlightCards.forEach((card) => {
+                const cardTop = card.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (cardTop < windowHeight - 100) {
+                    card.classList.add("visible");
+                }
+            });
+        };
+
+        window.addEventListener("scroll", revealOnScroll);
+        revealOnScroll();
+
+        /* quotes section */
+        const quotes = [
             "The art of communication is the language of leadership.",
             "Public speaking is the art of diluting a two-minute idea with a two-hour vocabulary.",
             "Your voice is your superpower — use it to inspire.",
