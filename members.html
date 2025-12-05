@@ -152,14 +152,24 @@
         const nav = document.querySelector('nav');
         const toggle = document.querySelector('.nav-toggle');
         const navUL = nav.querySelector('ul');
+        const navLinks = document.querySelectorAll("nav ul li a");
 
         if (toggle) {
           toggle.addEventListener('click', function(e){
+            e.stopPropagation();
             const expanded = this.getAttribute('aria-expanded') === 'true';
             this.setAttribute('aria-expanded', String(!expanded));
             nav.classList.toggle('open');
           });
         }
+
+        // Close menu when a link is clicked
+        navLinks.forEach(link => {
+            link.addEventListener("click", () => {
+                nav.classList.remove("open");
+                toggle.setAttribute("aria-expanded", false);
+            });
+        });
 
         // Tap-to-toggle overlays for cards (useful on touch devices)
         function setupCardToggles(selector) {
