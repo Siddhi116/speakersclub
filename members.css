@@ -97,15 +97,25 @@ nav ul li a:hover::after {
 /* Responsive Navbar */
 @media(max-width: 768px) {
   nav {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     padding: 10px 15px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-toggle {
+    order: 1;
+    margin-right: 10px;
   }
 
   nav > div {
     display: flex !important;
     align-items: center;
     width: auto;
+    justify-content: center;
     gap: 10px;
+    order: 2;
+    flex: 1;
   }
 
   .SC_logo {
@@ -135,6 +145,12 @@ nav ul li a:hover::after {
     width: 100%;
     padding-top: 15px;
     gap: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(11, 15, 26, 0.95);
+    display: none;
   }
 
   nav ul li {
@@ -159,6 +175,7 @@ nav ul li a:hover::after {
   padding: 8px;
   margin-right: 10px;
   z-index: 1001;
+  order: 1;
 }
 .nav-toggle .bar {
   display: block;
@@ -188,28 +205,79 @@ nav.open ul {
 }
 
 @media (max-width: 768px) {
-  .nav-toggle { 
-    display: block;
+  nav {
+    flex-wrap: nowrap;
+    padding: 10px 15px;
+    justify-content: flex-start;
+    align-items: center;
   }
-  
-  nav ul { 
-    display: none; 
-    width: 100%; 
+
+  .nav-toggle {
+    display: block;
+    order: 1;
+    margin-right: 10px;
+    flex-shrink: 0;
+  }
+
+  nav > div {
+    display: flex !important;
+    align-items: center;
+    justify-content: center !important;
+    gap: 10px;
+    order: 2;
+    flex: 1;
+  }
+
+  .SC_logo {
+    height: 60px;
+    width: auto;
+    margin-right: 10px;
+  }
+
+  .logo {
+    width: 70px;
+  }
+
+  .club-title {
+    display: flex;
+    flex-direction: column;
+    line-height: 0.9;
+  }
+
+  .club-title h1,
+  .club-title h2 {
+    font-size: 0.9rem;
+    margin: 2px;
+  }
+
+  nav ul {
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(11, 15, 26, 0.95);
+    flex-direction: column;
+    padding-top: 15px;
+    gap: 0;
+  }
+
+  nav.open ul {
+    display: flex !important;
     flex-direction: column;
   }
-  
-  nav.open ul { 
-    display: flex !important; 
-    flex-direction: column; 
+
+  nav.open ul li {
+    width: 100%;
+    border-bottom: 1px solid rgba(57, 255, 20, 0.2);
+    margin: 0;
   }
-  
-  nav.open ul li { 
-    width: 100%; 
-  }
-  
-  nav.open ul li a { 
-    padding: 12px 10px; 
-    display: block; 
+
+  nav.open ul li a {
+    padding: 12px 10px;
+    display: block;
+    font-size: 16px;
   }
 }
 
