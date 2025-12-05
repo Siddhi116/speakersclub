@@ -193,6 +193,30 @@
     onScroll();
   }
 })();
+
+/* Menu toggle */
+(function() {
+    const navToggle = document.querySelector(".nav-toggle");
+    const nav = document.querySelector("nav");
+    
+    if (!navToggle || !nav) return;
+
+    navToggle.addEventListener("click", function(e) {
+        e.stopPropagation();
+        nav.classList.toggle("open");
+        const isOpen = nav.classList.contains("open");
+        navToggle.setAttribute("aria-expanded", isOpen);
+    });
+
+    // Close menu when a link is clicked
+    const navLinks = document.querySelectorAll("nav ul li a");
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            nav.classList.remove("open");
+            navToggle.setAttribute("aria-expanded", false);
+        });
+    });
+})();
 </script>
 
 
