@@ -216,8 +216,10 @@ nav.open ul {
 /* Card & team-card: allow programmatic show (for touch devices) */
 .card.show::after,
 .team-card.show::after {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 0; /* fill the card */
+  width: 100% !important;
+  height: 100% !important;
   border-radius: 15px;
   content: attr(data-description);
   display: flex;
@@ -229,14 +231,17 @@ nav.open ul {
   font-weight: normal;
   color: #eee;
   line-height: 1.4;
-  white-space: normal;
-  word-wrap: break-word;
+  white-space: normal; /* normal wrapping */
   overflow-wrap: break-word;
+  word-break: normal;
   z-index: 3;
-  /* allow internal scrolling when content is larger than the card */
-  overflow: auto;
+  box-sizing: border-box;
+  /* vertical scrolling only; prevent horizontal scrollbar */
+  overflow-x: hidden;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   max-height: 100%;
+  pointer-events: auto;
 }
 
 /* Make sure hovering still works, but hide hover overlay on very small screens to avoid conflicts */
@@ -353,8 +358,10 @@ nav.open ul {
 
 /* MODIFIED to display the description text */
 .card:hover::after {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
   border-radius: 15px;
   content: attr(data-description); /* Pulls text from HTML data-attribute */
   display: flex;
@@ -367,13 +374,16 @@ nav.open ul {
   color: #eee;
   line-height: 1.4;
   white-space: normal;      /* allows wrapping */
-  word-wrap: break-word;    /* breaks long words */
-  overflow-wrap: break-word;/* modern alternative */
+  overflow-wrap: break-word;
+  word-break: normal;
   z-index: 3; /* ensure description is above the image and decorative ::before */
-  /* allow internal scrolling for long descriptions */
-  overflow: auto;
+  box-sizing: border-box;
+  /* vertical scroll only */
+  overflow-x: hidden;
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   max-height: 100%;
+  pointer-events: auto;
 }
 
 .card:hover {
@@ -482,10 +492,11 @@ nav.open ul {
 
 /* MODIFIED to display the description text */
 .team-card:hover::after {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
   border-radius: 15px;
-  /* ADDED properties to style and display the description */
   content: attr(data-description); /* Pulls text from HTML data-attribute */
   display: flex;
   align-items: center;
@@ -494,8 +505,13 @@ nav.open ul {
   padding: 20px;
   font-size: 16px;
   color: #eee;
-  overflow: visible;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  max-height: 100%;
   z-index: 3;
+  pointer-events: auto;
 }
 
 /* Responsive adjustments */
