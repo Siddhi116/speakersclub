@@ -97,15 +97,26 @@ nav ul li a:hover::after {
 /* Responsive Navbar */
 @media(max-width: 768px) {
   nav {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     padding: 10px 15px;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .nav-toggle {
+    display: block;
+    order: 1;
+    margin-right: 10px;
+    flex-shrink: 0;
   }
 
   nav > div {
     display: flex !important;
     align-items: center;
-    width: auto;
+    justify-content: center !important;
     gap: 10px;
+    order: 2;
+    flex: 1;
   }
 
   .SC_logo {
@@ -135,6 +146,12 @@ nav ul li a:hover::after {
     width: 100%;
     padding-top: 15px;
     gap: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(11, 15, 26, 0.95);
+    display: none;
   }
 
   nav ul li {
@@ -158,6 +175,7 @@ nav ul li a:hover::after {
   padding: 8px;
   margin-right: 10px;
   z-index: 1001;
+  order: 1;
 }
 .nav-toggle .bar {
   display: block;
