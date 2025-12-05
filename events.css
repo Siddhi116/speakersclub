@@ -111,6 +111,7 @@ nav ul li a:hover::after {
   padding: 8px;
   margin-right: 10px;
   z-index: 1001;
+  order: 1;
 }
 
 .nav-toggle .bar {
@@ -138,18 +139,24 @@ nav ul li a:hover::after {
 @media (max-width: 768px) {
   .nav-toggle { 
     display: block;
+    order: 1;
+    margin-right: 10px;
   }
   
   nav {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     padding: 10px 15px;
     min-height: auto;
+    justify-content: flex-start;
+    align-items: center;
   }
 
   nav > div {
     display: flex !important;
     align-items: center;
-    width: auto;
+    justify-content: center !important;
+    order: 2;
+    flex: 1;
     gap: 10px;
   }
 
