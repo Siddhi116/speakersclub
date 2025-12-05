@@ -8,11 +8,12 @@ body {
     background-color: #0b0f1a;
     color: white;
     line-height: 1.6;
+    padding-top: 100px;
 }
 
 /* Navbar */
 nav {
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 100%;
     background: rgba(11, 15, 26, 0.756);
@@ -96,37 +97,59 @@ nav ul li a:hover::after {
 /* Responsive Navbar */
 @media(max-width: 768px) {
   nav {
-    flex-direction: column;
-    align-items: center; /* center contents on mobile */
+    flex-wrap: wrap;
+    padding: 10px 15px;
   }
 
-  /* Stack logo and title vertically and center on mobile */
   nav > div {
     display: flex !important;
-    flex-direction: column;
     align-items: center;
-    width: 100%;
-    gap: 4px;
+    width: auto;
+    gap: 10px;
   }
 
-  .SC_logo { margin-bottom: 4px; }
+  .SC_logo {
+    height: 60px;
+    width: auto;
+    margin-right: 10px;
+  }
+
+  .logo {
+    width: 70px;
+  }
 
   .club-title {
-    width: 100%;
-    text-align: center;
-    margin: 0;
+    display: flex;
+    flex-direction: column;
+    line-height: 0.9;
+  }
+
+  .club-title h1, 
+  .club-title h2 {
+    font-size: 0.9rem;
+    margin: 2px;
   }
 
   nav ul {
     flex-direction: column;
     width: 100%;
-    padding-top: 10px;
+    padding-top: 15px;
+    gap: 0;
   }
 
   nav ul li {
-    margin: 10px 0;
+    margin: 0;
+    width: 100%;
+    border-bottom: 1px solid rgba(57, 255, 20, 0.2);
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 12px 10px;
+    font-size: 16px;
   }
 }
+
 /* Hamburger / nav toggle */
 .nav-toggle {
   display: none;
@@ -135,6 +158,7 @@ nav ul li a:hover::after {
   cursor: pointer;
   padding: 8px;
   margin-right: 10px;
+  z-index: 1001;
 }
 .nav-toggle .bar {
   display: block;
@@ -145,17 +169,48 @@ nav ul li a:hover::after {
   transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
+/* Hamburger animation when menu is open */
+.nav-toggle[aria-expanded="true"] .bar:nth-child(1) {
+  transform: rotate(45deg) translate(10px, 10px);
+}
+
+.nav-toggle[aria-expanded="true"] .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] .bar:nth-child(3) {
+  transform: rotate(-45deg) translate(8px, -8px);
+}
+
 /* When nav is open, show the ul on small screens */
 nav.open ul {
   display: flex !important;
 }
 
 @media (max-width: 768px) {
-  .nav-toggle { display: block; }
-  nav ul { display: none; width: 100%; }
-  nav.open ul { display: flex; flex-direction: column; }
-  nav.open ul li { width: 100%; }
-  nav.open ul li a { padding: 12px 0; display: block; }
+  .nav-toggle { 
+    display: block;
+  }
+  
+  nav ul { 
+    display: none; 
+    width: 100%; 
+    flex-direction: column;
+  }
+  
+  nav.open ul { 
+    display: flex !important; 
+    flex-direction: column; 
+  }
+  
+  nav.open ul li { 
+    width: 100%; 
+  }
+  
+  nav.open ul li a { 
+    padding: 12px 10px; 
+    display: block; 
+  }
 }
 
 /* Card & team-card: allow programmatic show (for touch devices) */
@@ -178,6 +233,10 @@ nav.open ul {
   word-wrap: break-word;
   overflow-wrap: break-word;
   z-index: 3;
+  /* allow internal scrolling when content is larger than the card */
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  max-height: 100%;
 }
 
 /* Make sure hovering still works, but hide hover overlay on very small screens to avoid conflicts */
@@ -208,7 +267,7 @@ nav.open ul {
   flex-wrap: wrap;
   margin: 0 auto 60px; /* centers horizontally with bottom margin */
   max-width: 900px; 
-  overflow: visible; /* limits the width so content stays centralized */
+  overflow: hidden; /* limits the width so content stays centralized */
 }
 
 
@@ -311,6 +370,10 @@ nav.open ul {
   word-wrap: break-word;    /* breaks long words */
   overflow-wrap: break-word;/* modern alternative */
   z-index: 3; /* ensure description is above the image and decorative ::before */
+  /* allow internal scrolling for long descriptions */
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  max-height: 100%;
 }
 
 .card:hover {
